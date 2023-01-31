@@ -20,8 +20,13 @@ TODO: List what your package can do. Maybe include images, gifs, or videos.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```yaml
+	reactive_variables:
+		version: ^0.0.1
+		git:
+			url: git@github.com:dronn1k-org/reactive_variables.git
+			ref: master
+```
 
 ## Usage
 
