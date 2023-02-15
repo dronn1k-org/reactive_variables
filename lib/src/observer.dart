@@ -1,5 +1,3 @@
-library reactive_variables;
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';

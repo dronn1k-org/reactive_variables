@@ -22,7 +22,7 @@ TODO: List what your package can do. Maybe include images, gifs, or videos.
 
 ```yaml
   reactive_variables:
-    version: ^0.0.1
+    version: ^0.0.2
     git:
       url: git@github.com:dronn1k-org/reactive_variables.git
       ref: master
