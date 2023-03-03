@@ -9,8 +9,12 @@ class Rv<T> extends ChangeNotifier implements ValueListenable {
   set value(T newValue) {
     if (_value == newValue) return;
     _value = newValue;
-    _valueStreamCtrl.add(_value);
-    notifyListeners();
+    if (_valueStreamCtrl.hasListener) {
+      _valueStreamCtrl.add(_value);
+    }
+    if (hasListeners) {
+      notifyListeners();
+    }
   }
 
   final StreamController<T> _valueStreamCtrl = StreamController.broadcast();
@@ -19,13 +23,21 @@ class Rv<T> extends ChangeNotifier implements ValueListenable {
 
   void trigger(T v) {
     _value = v;
-    _valueStreamCtrl.add(_value);
-    notifyListeners();
+    if (_valueStreamCtrl.hasListener) {
+      _valueStreamCtrl.add(_value);
+    }
+    if (hasListeners) {
+      notifyListeners();
+    }
   }
 
   void refresh() {
-    _valueStreamCtrl.add(value);
-    notifyListeners();
+    if (_valueStreamCtrl.hasListener) {
+      _valueStreamCtrl.add(value);
+    }
+    if (hasListeners) {
+      notifyListeners();
+    }
   }
 
   StreamSubscription<T> listen(
@@ -40,4 +52,17 @@ class Rv<T> extends ChangeNotifier implements ValueListenable {
         onDone: onDone,
         cancelOnError: cancelOnError,
       );
+
+  T call([T? newValue]) {
+    if (newValue is T) {
+      value = newValue;
+    }
+    return value;
+  }
+
+  @override
+  void dispose() {
+    _valueStreamCtrl.close();
+    super.dispose();
+  }
 }
