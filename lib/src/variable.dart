@@ -59,4 +59,10 @@ class Rv<T> extends ChangeNotifier implements ValueListenable {
     }
     return value;
   }
+
+  @override
+  void dispose() {
+    _valueStreamCtrl.close();
+    super.dispose();
+  }
 }
