@@ -54,7 +54,7 @@ class Rv<T> extends ChangeNotifier implements ValueListenable {
       );
 
   T call([T? newValue]) {
-    if (newValue is T) {
+    if (newValue != null) {
       value = newValue;
     }
     return value;
