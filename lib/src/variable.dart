@@ -65,4 +65,8 @@ class Rv<T> extends ChangeNotifier implements ValueListenable {
     _valueStreamCtrl.close();
     super.dispose();
   }
+
+  void updateSilently(T newValue) {
+    _value = newValue;
+  }
 }

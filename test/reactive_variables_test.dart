@@ -10,4 +10,27 @@ void main() {
     temp(1);
     expect(temp.value, 1);
   });
+
+  test('silent method', () async {
+    var isListenersNotified = false;
+    final Rv<int?> temp = Rv(null)
+      ..listen((value) {
+        isListenersNotified = true;
+      });
+    expect(temp(), null);
+    await Future.delayed(const Duration(milliseconds: 500));
+    expect(isListenersNotified, false);
+    isListenersNotified = false;
+
+    temp(1);
+    expect(temp(), 1);
+    await Future.delayed(const Duration(milliseconds: 500));
+    expect(isListenersNotified, true);
+    isListenersNotified = false;
+
+    temp.updateSilently(0);
+    expect(temp(), 0);
+    await Future.delayed(const Duration(milliseconds: 500));
+    expect(isListenersNotified, false);
+  });
 }
