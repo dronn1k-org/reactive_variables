@@ -28,7 +28,7 @@ void main() {
     expect(isListenersNotified, true);
     isListenersNotified = false;
 
-    temp.silent(0);
+    temp.updateSilently(0);
     expect(temp(), 0);
     await Future.delayed(const Duration(milliseconds: 500));
     expect(isListenersNotified, false);
