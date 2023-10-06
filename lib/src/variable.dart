@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 
+part 'extension/on_list.dart';
+
 class Rv<T> extends ChangeNotifier implements ValueListenable {
   T _value;
   @override
