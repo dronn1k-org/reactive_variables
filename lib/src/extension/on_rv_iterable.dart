@@ -12,9 +12,18 @@ extension OnRvIterable<T> on Rv<Iterable<T>> {
 
   T get first => value.first;
   T get last => value.last;
+
   T? get firstOrNull {
     try {
       return value.first;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  T? get lastOrNull {
+    try {
+      return value.last;
     } catch (e) {
       return null;
     }
