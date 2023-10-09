@@ -1,7 +1,7 @@
 name: reactive_variables
 description: Simple state manager
 version: 0.1.0
-homepage:
+repository: https://github.com/dronn1k-org/reactive_variables
 
 environment:
   sdk: '>=2.12.0 <4.0.0'
