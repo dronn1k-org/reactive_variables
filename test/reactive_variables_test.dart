@@ -34,7 +34,7 @@ void main() {
     expect(isListenersNotified, false);
   });
   group('test equitability', () {
-    test('overloaded operator tasting', () {
+    test('overloaded operator testing', () {
       final firstString = '123'.rv;
       final secondString = '123'.rv;
 
