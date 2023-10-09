@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 part 'extension/on_rv_list.dart';
 part 'extension/on_rv_iterable.dart';
 part 'extension/on_rv_map.dart';
+part 'extension/on_rv_set.dart';
 
 class Rv<T> extends ChangeNotifier implements ValueListenable {
   T _value;
