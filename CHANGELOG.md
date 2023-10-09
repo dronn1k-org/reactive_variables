@@ -1,42 +1,40 @@
 ## 0.1.0
-### Added
+### ➕ Added
 * [README](README.md), [LICENSE](LICENSE), [CHANGELOG](CHANGELOG.md)
 * [Example project](example)
 * Tests
-
-### Changed
+### ✏️ Changed
 * Type handling in `OnWidget` extension
 
 ## 0.0.6+1
-### Added
+### ➕ Added
 * `OnWidget` extension
-### Fixed
+### 🛠️ Fixed
 * Issues in `OnRvSet`, `OnRvMap`, `OnRvList` extensions
 
 ## 0.0.6
-### Added
+### ➕ Added
 * Types extensions
 
 ## 0.0.5
-### Added
+### ➕ Added
 * `silentUpdate` method
 
 ## 0.0.4
-### Added
+### ➕ Added
 * `dispose` method
 
 ## 0.0.3
-### Fixed
-* `call` method
-### Added
+### ➕ Added
 * tests
-
+### 🛠️ Fixed
+* `call` method
 
 ## 0.0.2
-### Added
+### ➕ Added
 * `call` method
 * check for stream listener existence
-### Fixed
+### 🛠️ Fixed
 * [README](README.md)
 
 ## 0.0.1
