@@ -33,4 +33,27 @@ void main() {
     await Future.delayed(const Duration(milliseconds: 500));
     expect(isListenersNotified, false);
   });
+  group('test equitability', () {
+    test('overloaded operator tasting', () {
+      final firstString = '123'.rv;
+      final secondString = '123'.rv;
+
+      expect(firstString == secondString, true);
+
+      firstString('321');
+
+      expect(firstString == secondString, false);
+    });
+
+    test('hashCode testing', () {
+      final firstString = '123'.rv;
+      var secondString = firstString;
+
+      expect(firstString.hashCode == secondString.hashCode, true);
+
+      secondString = '123'.rv;
+
+      expect(firstString.hashCode == secondString.hashCode, false);
+    });
+  });
 }
