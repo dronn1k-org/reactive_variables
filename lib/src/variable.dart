@@ -14,12 +14,7 @@ class Rv<T> extends ChangeNotifier implements ValueListenable {
   set value(T newValue) {
     if (_value == newValue) return;
     _value = newValue;
-    if (_valueStreamCtrl.hasListener) {
-      _valueStreamCtrl.add(_value);
-    }
-    if (hasListeners) {
-      notifyListeners();
-    }
+    refresh();
   }
 
   final StreamController<T> _valueStreamCtrl = StreamController.broadcast();
@@ -28,12 +23,7 @@ class Rv<T> extends ChangeNotifier implements ValueListenable {
 
   void trigger(T v) {
     _value = v;
-    if (_valueStreamCtrl.hasListener) {
-      _valueStreamCtrl.add(_value);
-    }
-    if (hasListeners) {
-      notifyListeners();
-    }
+    refresh();
   }
 
   void refresh() {
