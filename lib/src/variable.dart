@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 
-part 'extension/on_rv_list.dart';
 part 'extension/on_rv_iterable.dart';
+part 'extension/on_rv_list.dart';
 part 'extension/on_rv_map.dart';
 part 'extension/on_rv_set.dart';
 
@@ -11,8 +11,13 @@ abstract class RvInterface extends ChangeNotifier implements ValueListenable {}
 
 class Rv<T> extends RvInterface {
   T _value;
+
+  /// Getter for the reactive variable's value.
   @override
   T get value => _value;
+
+  /// Setter for the reactive variable's value.
+  /// Notifies listeners if the value changes.
   set value(T newValue) {
     if (_value == newValue) return;
     _value = newValue;
@@ -21,13 +26,16 @@ class Rv<T> extends RvInterface {
 
   final StreamController<T> _valueStreamCtrl = StreamController.broadcast();
 
+  /// Constructor to initialize the reactive variable with an initial value.
   Rv(this._value);
 
+  /// Triggers a change in the reactive variable's value and notifies listeners.
   void trigger(T v) {
     _value = v;
     refresh();
   }
 
+  /// Refreshes the variable and notifies listeners of changes.
   void refresh() {
     if (_valueStreamCtrl.hasListener) {
       _valueStreamCtrl.add(value);
@@ -37,6 +45,7 @@ class Rv<T> extends RvInterface {
     }
   }
 
+  /// Listen to changes in the reactive variable's value.
   StreamSubscription<T> listen(
     void Function(T value) listener, {
     Function? onError,
@@ -50,6 +59,7 @@ class Rv<T> extends RvInterface {
         cancelOnError: cancelOnError,
       );
 
+  /// Function to get or set the value of the reactive variable.
   T call([T? newValue]) {
     if (newValue != null) {
       value = newValue;
@@ -63,6 +73,7 @@ class Rv<T> extends RvInterface {
     super.dispose();
   }
 
+  /// Update the value without triggering any listeners.
   void updateSilently(T newValue) => _value = newValue;
 
   @override
