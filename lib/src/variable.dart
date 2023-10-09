@@ -7,7 +7,9 @@ part 'extension/on_rv_iterable.dart';
 part 'extension/on_rv_map.dart';
 part 'extension/on_rv_set.dart';
 
-class Rv<T> extends ChangeNotifier implements ValueListenable {
+abstract class RvInterface extends ChangeNotifier implements ValueListenable {}
+
+class Rv<T> extends RvInterface {
   T _value;
   @override
   T get value => _value;
@@ -61,9 +63,7 @@ class Rv<T> extends ChangeNotifier implements ValueListenable {
     super.dispose();
   }
 
-  void updateSilently(T newValue) {
-    _value = newValue;
-  }
+  void updateSilently(T newValue) => _value = newValue;
 
   @override
   bool operator ==(Object? other) {
