@@ -6,7 +6,7 @@ import 'variable.dart';
 
 class Obs extends StatefulWidget {
   final List<Rv> rvList;
-  final Widget Function() builder;
+  final WidgetBuilder builder;
 
   const Obs({
     Key? key,
@@ -23,7 +23,7 @@ class _ObsState extends State<Obs> {
 
   @override
   void initState() {
-    for (var element in widget.rvList) {
+    for (final element in widget.rvList) {
       _subList.add(element.listen((value) {
         if (mounted) {
           setState(() {});
@@ -35,7 +35,7 @@ class _ObsState extends State<Obs> {
 
   @override
   void dispose() {
-    for (var element in _subList) {
+    for (final element in _subList) {
       element.cancel();
     }
     super.dispose();
@@ -43,6 +43,6 @@ class _ObsState extends State<Obs> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.builder.call();
+    return widget.builder.call(context);
   }
 }
