@@ -18,21 +18,9 @@ extension OnRvList<T> on Rv<List<T>> {
   T get first => value.first;
   T get last => value.last;
 
-  T? get firstOrNull {
-    try {
-      return value.first;
-    } catch (e) {
-      return null;
-    }
-  }
+  T? get firstOrNull => isNotEmpty ? value.first : null;
 
-  T? get lastOrNull {
-    try {
-      return value.last;
-    } catch (e) {
-      return null;
-    }
-  }
+  T? get lastOrNull => isNotEmpty ? value.last : null;
 
   void add(T value) {
     this.value.add(value);

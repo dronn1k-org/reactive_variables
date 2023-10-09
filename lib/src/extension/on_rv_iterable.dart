@@ -13,21 +13,9 @@ extension OnRvIterable<T> on Rv<Iterable<T>> {
   T get first => value.first;
   T get last => value.last;
 
-  T? get firstOrNull {
-    try {
-      return value.first;
-    } catch (e) {
-      return null;
-    }
-  }
+  T? get firstOrNull => isNotEmpty ? value.first : null;
 
-  T? get lastOrNull {
-    try {
-      return value.last;
-    } catch (e) {
-      return null;
-    }
-  }
+  T? get lastOrNull => isNotEmpty ? value.last : null;
 
   Iterable<T> where(bool Function(T) function) => value.where(function);
   T firstWhere(bool Function(T) function) => value.firstWhere(function);
