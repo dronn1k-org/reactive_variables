@@ -64,4 +64,22 @@ class Rv<T> extends RvInterface {
   }
 
   void updateSilently(T newValue) => _value = newValue;
+
+  @override
+  bool operator ==(Object? other) {
+    if (other is T) return value == other;
+    if (other is Rv<T>) return value == other.value;
+    return false;
+  }
+
+  @override
+  int get hashCode =>
+      _value.hashCode ^
+      _valueStreamCtrl.hashCode ^
+      trigger.hashCode ^
+      refresh.hashCode ^
+      listen.hashCode ^
+      call.hashCode ^
+      dispose.hashCode ^
+      updateSilently.hashCode;
 }
