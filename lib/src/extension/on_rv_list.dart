@@ -1,6 +1,6 @@
 part of '../variable.dart';
 
-extension RvList<T> on Rv<List<T>> {
+extension OnRvList<T> on Rv<List<T>> {
   T operator [](int index) {
     return value[index];
   }
@@ -63,7 +63,7 @@ extension RvList<T> on Rv<List<T>> {
     refresh();
   }
 
-  Rv<Iterable<R>> map<R>(R Function(T e) map) => Rv(value.map(map));
+  Iterable<R> map<R>(R Function(T e) map) => value.map(map);
 
   Iterable<T> where(bool Function(T) function) => value.where(function);
   T firstWhere(bool Function(T) function) => value.firstWhere(function);

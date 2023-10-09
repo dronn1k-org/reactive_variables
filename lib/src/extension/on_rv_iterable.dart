@@ -1,6 +1,6 @@
 part of '../variable.dart';
 
-extension RvIterable<T> on Rv<Iterable<T>> {
+extension OnRvIterable<T> on Rv<Iterable<T>> {
   T operator [](int index) {
     return value.elementAt(index);
   }
@@ -24,5 +24,5 @@ extension RvIterable<T> on Rv<Iterable<T>> {
   T firstWhere(bool Function(T) function) => value.firstWhere(function);
   T lastWhere(bool Function(T) function) => value.lastWhere(function);
 
-  Rv<List<T>> toList() => Rv(value.toList());
+  List<T> toList() => value.toList();
 }
