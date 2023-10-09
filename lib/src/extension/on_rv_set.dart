@@ -5,11 +5,6 @@ extension OnRvSet<T> on Rv<Set<T>> {
     return value.elementAt(index);
   }
 
-  void operator []=(int index, T value) {
-    this[index] = value;
-    refresh();
-  }
-
   bool get isEmpty => value.isEmpty;
   bool get isNotEmpty => value.isNotEmpty;
 

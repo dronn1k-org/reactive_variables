@@ -6,7 +6,7 @@ extension OnRvList<T> on Rv<List<T>> {
   }
 
   void operator []=(int index, T value) {
-    this[index] = value;
+    this.value[index] = value;
     refresh();
   }
 

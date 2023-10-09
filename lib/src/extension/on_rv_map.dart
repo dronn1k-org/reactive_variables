@@ -1,12 +1,12 @@
 part of '../variable.dart';
 
 extension OnRvMap<K, V> on Rv<Map<K, V>> {
-  V? operator [](K index) {
-    return value[index];
+  V? operator [](K key) {
+    return value[key];
   }
 
   void operator []=(K key, V value) {
-    this[key] = value;
+    this.value[key] = value;
     refresh();
   }
 
