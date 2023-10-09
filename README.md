@@ -1,41 +1,67 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Reactive Variables for Flutter
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+Make your Flutter app's state management easier with `reactive_variables`. This package offers a simple way to create reactive variables, ensuring your UI always stays in sync.
+## 🌟 Features:
+- **Simplicity**: Create reactive variables without the fuss.
+- **UI Synchronization**: Widgets automatically refresh when your reactive variables change.
+- **Flexibility**: Comes with extensions that cater to various data types and collections.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
+## 🔧 Installation:
+Add this to your `pubspec.yaml`:
 
 ```yaml
-  reactive_variables:
-    git: https://github.com/dronn1k-org/reactive_variables.git
+dependencies:
+  reactive_variables: ^0.1.0
 ```
 
-## Usage
+## 💡 How to use:
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+#### 1. Create a reactive variable
+```dart
+final Rv<int> count = Rv(0);
+```
+or
+```dart
+final count = 0.rv;
+```
+
+#### 2. Listen to changes
+```dart
+count.listen((value) {
+  print("Count changed: $value");
+});
+```
+
+#### 3. Update the value
+```dart
+count.trigger(5);
+```
+
+#### 4. Auto-refreshing UI
+```dart
+Obs(
+  rvList: [count],
+  builder: (context) => Text("Current count: ${count.value}"),
+);
+```
+
+#### Using with getters and setters
+```dart
+final Rv<int> rvCount = Rv(0);
+
+int get count => rvCount.value;
+set count(int v) => rvCount.trigger(v);
+```
+
+## 📦 Extensions:
+
+Easily handle different data types:
 
 ```dart
-const like = 'sample';
+final items = <String>{}.rv;
+items.add("apple");
+items.remove("apple");
 ```
 
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+## 📜 License:
+[MIT](LICENSE)
