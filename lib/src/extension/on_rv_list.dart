@@ -5,6 +5,11 @@ extension OnRvList<T> on Rv<List<T>> {
     return value[index];
   }
 
+  void operator []=(int index, T value) {
+    this[index] = value;
+    refresh();
+  }
+
   bool get isEmpty => value.isEmpty;
   bool get isNotEmpty => value.isNotEmpty;
 
