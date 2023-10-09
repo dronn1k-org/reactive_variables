@@ -1,11 +1,9 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
-import 'variable.dart';
+import '../reactive_variables.dart';
 
 class Obs extends StatefulWidget {
-  final List<Rv> rvList;
+  final List<RvInterface> rvList;
   final WidgetBuilder builder;
 
   const Obs({
@@ -19,26 +17,26 @@ class Obs extends StatefulWidget {
 }
 
 class _ObsState extends State<Obs> {
-  final List<StreamSubscription> _subList = [];
-
   @override
   void initState() {
     for (final element in widget.rvList) {
-      _subList.add(element.listen((value) {
-        if (mounted) {
-          setState(() {});
-        }
-      }));
+      element.addListener(_listener);
     }
     super.initState();
   }
 
   @override
   void dispose() {
-    for (final element in _subList) {
-      element.cancel();
+    for (final element in widget.rvList) {
+      element.removeListener(_listener);
     }
     super.dispose();
+  }
+
+  void _listener() {
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
