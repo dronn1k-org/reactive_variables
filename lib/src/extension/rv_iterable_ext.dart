@@ -1,7 +1,7 @@
 part of '../variable.dart';
 
 /// Extension to provide additional methods for `Rv<Iterable<T>>`.
-extension OnRvIterable<T> on Rv<Iterable<T>> {
+extension RvIterableExt<T> on Rv<Iterable<T>> {
   /// Gets the element at the specified [index] in the iterable.
   T operator [](int index) {
     return value.elementAt(index);
