@@ -7,6 +7,6 @@ extension OnWidget on Widget {
   ///
   /// [rvList] - List of reactive variables to observe. When any of these reactive variables change,
   /// the widget is rebuilt.
-  Obs observe(List<RvInterface> rvList) =>
+  Obs observe(List<AbstractRv> rvList) =>
       Obs(rvList: rvList, builder: (context) => this);
 }
