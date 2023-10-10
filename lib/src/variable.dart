@@ -6,6 +6,7 @@ part 'extension/on_rv_iterable.dart';
 part 'extension/on_rv_list.dart';
 part 'extension/on_rv_map.dart';
 part 'extension/on_rv_set.dart';
+part 'extension/rv_string_ext.dart';
 
 abstract class RvInterface extends ChangeNotifier implements ValueListenable {}
 
