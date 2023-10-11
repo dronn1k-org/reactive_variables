@@ -1,7 +1,7 @@
 part of '../variable.dart';
 
 /// Extension to provide additional methods for `Rv<Map<K, V>>`.
-extension OnRvMap<K, V> on Rv<Map<K, V>> {
+extension RvMapExt<K, V> on Rv<Map<K, V>> {
   /// Retrieves the value associated with the given [key] in the map.
   V? operator [](K key) {
     return value[key];
