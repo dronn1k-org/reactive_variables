@@ -1,40 +1,44 @@
+## 0.1.1
+### ✏️ Changes
+* A documentation for public API has been added.
+* An issue tracker link has been added to the pubspec.yaml.
+* The changelog has received some changes.
+* RvInterface name has been changed to AbstractRv. ([e2c4909](https://github.com/dronn1k-org/reactive_variables/pull/14/commits/e2c4909e472b866d8ac6765308ab9144356fb164))
+* Extensions naming has been changed. ([0d86119](https://github.com/dronn1k-org/reactive_variables/pull/14/commits/0d86119f559ea96cbbdadbe787b5ccfc5fe3c475))
+
 ## 0.1.0
-### ➕ Added
+### ✏️ Changes
 * [README](README.md), [LICENSE](LICENSE), [CHANGELOG](CHANGELOG.md)
-* [Example project](example)
-* Tests
-### ✏️ Changed
-* Type handling in `OnWidget` extension
+* [Example project](example) has been added.
+* Tests some logic have been implemented.
+* Type handling in `OnWidget` extension.
 
 ## 0.0.6+1
-### ➕ Added
-* `OnWidget` extension
-### 🛠️ Fixed
-* Issues in `OnRvSet`, `OnRvMap`, `OnRvList` extensions
+### ✏️ Changes
+* `OnWidget` extension has been implemented.
+* Issues in `OnRvSet`, `OnRvMap`, `OnRvList` extensions have been fixed.
 
 ## 0.0.6
-### ➕ Added
-* Types extensions
+### ✏️ Changes
+* Types extensions have been implemented.
 
 ## 0.0.5
-### ➕ Added
-* `silentUpdate` method
+### ✏️ Changes
+* `silentUpdate` method has been implemented.
 
 ## 0.0.4
-### ➕ Added
-* `dispose` method
+### ✏️ Changes
+* `dispose` method issue has been fixed.
 
 ## 0.0.3
-### ➕ Added
+### ✏️ Changes
 * tests
-### 🛠️ Fixed
-* `call` method
+* `call` method has been fixed.
 
 ## 0.0.2
-### ➕ Added
-* `call` method
+### ✏️ Changes
+* `call` method has been implemented.
 * check for stream listener existence
-### 🛠️ Fixed
 * [README](README.md)
 
 ## 0.0.1
