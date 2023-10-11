@@ -1,7 +1,8 @@
 name: reactive_variables
-description: Simple state manager
-version: 0.1.0
+description: This package offers a simple way to create reactive variables, ensuring your UI always stays in sync.
+version: 0.1.1
 repository: https://github.com/dronn1k-org/reactive_variables
+issue_tracker: https://github.com/dronn1k-org/reactive_variables/issues
 
 environment:
   sdk: '>=2.12.0 <4.0.0'
