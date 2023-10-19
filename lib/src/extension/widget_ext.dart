@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:reactive_variables/reactive_variables.dart';
+part of '../observer.dart';
 
 /// Extension to provide additional method for `Widget`.
 extension WidgetExt on Widget {
@@ -7,6 +6,13 @@ extension WidgetExt on Widget {
   ///
   /// [rvList] - List of reactive variables to observe. When any of these reactive variables change,
   /// the widget is rebuilt.
-  Obs observe(List<AbstractRv> rvList) =>
-      Obs(rvList: rvList, builder: (context) => this);
+  Widget observe(List<AbstractRv> rvList, [Key? key]) {
+    log('I have been called from here',
+        stackTrace: StackTrace.current, sequenceNumber: 10, level: 10);
+    return Obs(key: key, rvList: rvList, builder: (context) => this);
+  }
+
+  Widget center() => Center(
+        child: this,
+      );
 }

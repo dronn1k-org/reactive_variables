@@ -46,6 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
+            Text(
+              '${count.value}',
+              style: const TextStyle(fontSize: 24),
+            ).center(),
           ],
         ),
       ),
