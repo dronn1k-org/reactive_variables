@@ -77,7 +77,7 @@ class Rv<T> extends AbstractRv {
   void updateSilently(T newValue) => _value = newValue;
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     if (other is T) return value == other;
     if (other is Rv<T>) return value == other.value;
     return false;
