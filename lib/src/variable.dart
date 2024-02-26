@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:reactive_variables/reactive_variables.dart';
 
 part 'extension/rv_iterable_ext.dart';
 part 'extension/rv_list_ext.dart';
@@ -77,7 +79,7 @@ class Rv<T> extends AbstractRv {
   void updateSilently(T newValue) => _value = newValue;
 
   @override
-  bool operator ==(Object? other) {
+  bool operator ==(Object other) {
     if (other is T) return value == other;
     if (other is Rv<T>) return value == other.value;
     return false;
@@ -93,4 +95,8 @@ class Rv<T> extends AbstractRv {
       call.hashCode ^
       dispose.hashCode ^
       updateSilently.hashCode;
+
+  /// Creates a [Widget] that will be observing for changes of the value
+  Widget observer(Widget Function(BuildContext context, T value) builder) =>
+      Obs(rvList: [this], builder: (context) => builder(context, value));
 }
