@@ -9,9 +9,9 @@ part 'extension/rv_list_ext.dart';
 part 'extension/rv_map_ext.dart';
 part 'extension/rv_set_ext.dart';
 
-abstract class AbstractRv extends ChangeNotifier implements ValueListenable {}
+abstract class AbstractRv extends ChangeNotifier implements Listenable {}
 
-class Rv<T> extends AbstractRv {
+class Rv<T> extends AbstractRv implements ValueListenable<T> {
   T _value;
 
   /// Getter for the reactive variable's value.
