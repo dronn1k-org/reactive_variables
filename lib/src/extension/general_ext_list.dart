@@ -55,6 +55,7 @@ extension RvOnMap<K, V> on Map<K, V> {
   Rv<Map<K, V>> get rv => Rv<Map<K, V>>(this);
 }
 
+/// An extension on the [List] of [AbstractRv] that provides quality of life methods.
 extension RvOnListRv on List<AbstractRv> {
   /// Creates a [Widget] that will be observing for changes of
   /// the [List] of reactive variables.
