@@ -1,15 +1,17 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:reactive_variables/reactive_variables.dart';
 
 part 'extension/rv_iterable_ext.dart';
 part 'extension/rv_list_ext.dart';
 part 'extension/rv_map_ext.dart';
 part 'extension/rv_set_ext.dart';
 
-abstract class AbstractRv extends ChangeNotifier implements ValueListenable {}
+abstract class AbstractRv extends ChangeNotifier implements Listenable {}
 
-class Rv<T> extends AbstractRv {
+class Rv<T> extends AbstractRv implements ValueListenable<T> {
   T _value;
 
   /// Getter for the reactive variable's value.
@@ -93,4 +95,8 @@ class Rv<T> extends AbstractRv {
       call.hashCode ^
       dispose.hashCode ^
       updateSilently.hashCode;
+
+  /// Creates a [Widget] that will be observing for changes of the value
+  Widget observer(Widget Function(BuildContext context, T value) builder) =>
+      Obs(rvList: [this], builder: (context) => builder(context, value));
 }

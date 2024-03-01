@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:reactive_variables/reactive_variables.dart';
 
 /// An extension on `Null` to create a reactive variable (`Rv`) of type `T` with a null value.
@@ -52,4 +53,11 @@ extension RvOnSet<T> on Set<T> {
 extension RvOnMap<K, V> on Map<K, V> {
   /// Returns a reactive variable (`Rv<Map<K, V>>`) initialized with this Map value.
   Rv<Map<K, V>> get rv => Rv<Map<K, V>>(this);
+}
+
+extension RvOnListRv on List<AbstractRv> {
+  /// Creates a [Widget] that will be observing for changes of
+  /// the [List] of reactive variables.
+  Widget observer(Widget Function(BuildContext context) builder) =>
+      Obs(rvList: this, builder: builder);
 }

@@ -1,6 +1,6 @@
 name: reactive_variables
 description: This package offers a simple way to create reactive variables, ensuring your UI always stays in sync.
-version: 0.1.1
+version: 1.0.0
 repository: https://github.com/dronn1k-org/reactive_variables
 issue_tracker: https://github.com/dronn1k-org/reactive_variables/issues
 
@@ -15,7 +15,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.3
+  flutter_lints: ^3.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
