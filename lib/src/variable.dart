@@ -39,12 +39,8 @@ class Rv<T> extends AbstractRv implements ValueListenable<T> {
 
   /// Refreshes the variable and notifies listeners of changes.
   void refresh() {
-    if (_valueStreamCtrl.hasListener) {
-      _valueStreamCtrl.add(value);
-    }
-    if (hasListeners) {
-      notifyListeners();
-    }
+    _valueStreamCtrl.add(value);
+    notifyListeners();
   }
 
   /// Listen to changes in the reactive variable's value.
