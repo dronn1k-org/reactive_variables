@@ -46,6 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
+            count.observer((context, value) => Text(
+                  '$value',
+                  style: const TextStyle(fontSize: 24),
+                )),
           ],
         ),
       ),

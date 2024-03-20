@@ -1,3 +1,9 @@
+## 1.0.0
+* `OnWidget` extension has been removed due to state management issues.
+* `observer` method has been implemented for `Rv` class.
+* `RvOnListRv` extension has been introduced for the `List` of `AbstractRv` with `observer` method.
+* `==` operator overriding has been fixed to be non-nullable.
+
 ## 0.1.1
 * A documentation for public API has been added.
 * An issue tracker link has been added to the pubspec.yaml.

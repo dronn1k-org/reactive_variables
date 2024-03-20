@@ -24,20 +24,28 @@ class Obs extends StatefulWidget {
 class _ObsState extends State<Obs> {
   @override
   void initState() {
-    // Add a listener to each reactive variable in the list.
-    for (final element in widget.rvList) {
-      element.addListener(_listener);
-    }
+    _addListeners(widget.rvList);
     super.initState();
   }
 
   @override
   void dispose() {
-    // Remove the listener from each reactive variable in the list.
+    _removeListeners(widget.rvList);
+    super.dispose();
+  }
+
+  /// Add a listener to each reactive variable in the list.
+  void _addListeners(List<AbstractRv> rvList) {
+    for (final element in rvList) {
+      element.addListener(_listener);
+    }
+  }
+
+  /// Remove the listener from each reactive variable in the list.
+  void _removeListeners(List<AbstractRv> rvList) {
     for (final element in widget.rvList) {
       element.removeListener(_listener);
     }
-    super.dispose();
   }
 
   /// The listener callback that triggers a rebuild when any of the Rvs change.
@@ -45,6 +53,15 @@ class _ObsState extends State<Obs> {
     // Ensure the widget is still in the widget tree before calling setState.
     if (mounted) {
       setState(() {});
+    }
+  }
+
+  @override
+  void didUpdateWidget(Obs oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.rvList != widget.rvList) {
+      _removeListeners(oldWidget.rvList);
+      _addListeners(widget.rvList);
     }
   }
 
