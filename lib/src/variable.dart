@@ -9,7 +9,7 @@ part 'extension/rv_list_ext.dart';
 part 'extension/rv_map_ext.dart';
 part 'extension/rv_set_ext.dart';
 
-abstract class AbstractRv extends ChangeNotifier implements Listenable {}
+abstract class AbstractRv extends ChangeNotifier {}
 
 class Rv<T> extends AbstractRv implements ValueListenable<T> {
   T _value;
